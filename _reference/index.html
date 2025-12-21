@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="dark" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Ruanggulik - Blog teknologi praktis dengan gaya Neo-Brutalism.">
+    <title>Ruanggulik - Blog Teknologi Praktis</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Noto+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6",
+                        "primary-hover": "#2563eb",
+                        "accent": "#facc15",
+                        "background-dark": "#0f1115",
+                        "surface-dark": "#181b21",
+                        "border-dark": "#333",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    boxShadow: {
+                        "neo": "6px 6px 0px 0px #3b82f6",
+                        "neo-white": "6px 6px 0px 0px #ffffff",
+                        "neo-accent": "6px 6px 0px 0px #facc15",
+                        "neo-sm": "3px 3px 0px 0px #3b82f6",
+                        "none": "0px 0px 0px 0px transparent",
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f1115;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border: 2px solid #0f1115;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        /* Dot Pattern Background */
+        .bg-grid-pattern {
+            background-color: #0f1115;
+            background-image: radial-gradient(#333 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Transition utility for smooth hover */
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+        }
+    </style>
+</head>
+
+<body class="bg-grid-pattern text-white font-display overflow-x-hidden selection:bg-accent selection:text-black">
+
+    <div class="flex min-h-screen flex-col relative">
+
+        <header class="sticky top-0 z-50 w-full border-b-2 border-white bg-[#0f1115]/95 backdrop-blur-md">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="flex h-20 items-center justify-between">
+                    <a class="flex items-center gap-3 group" href="#">
+                        <div class="flex size-10 items-center justify-center bg-primary text-white border-2 border-white transition-transform group-hover:rotate-6 group-hover:shadow-neo-white">
+                            <span class="material-symbols-outlined font-bold">terminal</span>
+                        </div>
+                        <h1 class="text-2xl font-black tracking-tighter text-white uppercase italic group-hover:text-primary transition-colors">RUANGGULIK</h1>
+                    </a>
+
+                    <nav class="hidden lg:flex items-center gap-8">
+                        <a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors relative group" href="#">
+                            Beranda
+                            <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary transition-all group-hover:w-full"></span>
+                        </a>
+                        <a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors relative group" href="#">
+                            Kategori
+                            <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary transition-all group-hover:w-full"></span>
+                        </a>
+                        <a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors relative group" href="#">
+                            Tentang
+                            <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary transition-all group-hover:w-full"></span>
+                        </a>
+                    </nav>
+
+                    <div class="hidden lg:flex items-center gap-4">
+                        <div class="flex items-center border-2 border-white bg-[#181b21] focus-within:border-primary focus-within:shadow-neo transition-all h-10 px-2">
+                            <span class="material-symbols-outlined text-gray-400 text-sm">search</span>
+                            <input class="bg-transparent px-2 text-sm text-white placeholder-gray-500 focus:outline-none w-40" placeholder="Cari..." type="text" />
+                        </div>
+                        <button class="bg-accent text-black px-6 py-2 text-sm font-bold uppercase border-2 border-white hover:shadow-neo-white hover:-translate-y-1 transition-all active:translate-y-0 active:shadow-none">
+                            Subscribe
+                        </button>
+                    </div>
+
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 border-2 border-white bg-surface-dark text-white hover:bg-primary transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="fixed inset-0 bg-[#0f1115] z-50 transform translate-x-full transition-transform duration-300 flex flex-col pt-24 px-6 gap-6 lg:hidden">
+                <button id="close-menu-btn" class="absolute top-6 right-4 p-2 border-2 border-white text-white hover:bg-red-600 transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <a href="#" class="text-3xl font-black uppercase hover:text-primary border-b-2 border-white/20 pb-4">Beranda</a>
+                <a href="#" class="text-3xl font-black uppercase hover:text-primary border-b-2 border-white/20 pb-4">Kategori</a>
+                <a href="#" class="text-3xl font-black uppercase hover:text-primary border-b-2 border-white/20 pb-4">Tentang</a>
+                <a href="#" class="text-3xl font-black uppercase hover:text-primary border-b-2 border-white/20 pb-4">Kontak</a>
+                <button class="w-full bg-accent text-black py-4 text-xl font-bold uppercase border-2 border-white shadow-neo mt-4">Subscribe Now</button>
+            </div>
+        </header>
+
+        <main class="flex-grow container mx-auto px-4 lg:px-8 py-12 max-w-7xl">
+
+            <section class="mb-20">
+                <div class="border-2 border-white bg-[#0f1115] shadow-neo flex flex-col hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                    <div class="border-b-2 border-white bg-[#181b21] p-3 flex items-center justify-between">
+                        <div class="flex gap-2">
+                            <div class="size-4 bg-red-500 border border-white rounded-full"></div>
+                            <div class="size-4 bg-yellow-500 border border-white rounded-full"></div>
+                            <div class="size-4 bg-green-500 border border-white rounded-full"></div>
+                        </div>
+                        <div class="text-xs font-mono font-bold uppercase text-gray-400">user@ruanggulik:~</div>
+                        <div class="size-4"></div>
+                    </div>
+
+                    <div class="p-8 md:p-16 font-mono relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+                        <div class="relative z-10 space-y-6">
+                            <div>
+                                <span class="text-accent mr-2">➜</span>
+                                <span class="text-primary font-bold">~</span>
+                                <span class="text-white"> echo $BRAND_NAME</span>
+                            </div>
+                            <h2 class="text-5xl md:text-7xl font-black uppercase text-white tracking-tighter">
+                                RUANG<span class="text-primary">GULIK</span>_
+                            </h2>
+
+                            <div>
+                                <span class="text-accent mr-2">➜</span>
+                                <span class="text-primary font-bold">~</span>
+                                <span class="text-white"> cat description.txt</span>
+                            </div>
+                            <p class="text-xl md:text-xl text-gray-300 font-bold border-l-4 border-accent pl-4 py-2 bg-white/5 max-w-3xl">
+                                "Tempat untuk belajar teknologi praktis yang dijelaskan secara sederhana dan to-the-point."
+                            </p>
+
+                            <div class="animate-pulse text-accent font-bold">_</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-8 flex flex-col gap-10">
+                    <div class="flex items-center gap-4 border-b-4 border-white pb-4">
+                        <div class="bg-primary p-2 border-2 border-white">
+                            <span class="material-symbols-outlined text-white">feed</span>
+                        </div>
+                        <h3 class="text-3xl font-black uppercase tracking-tight">Artikel Terbaru</h3>
+                    </div>
+
+                    <div class="grid gap-8">
+                        <article class="group relative flex flex-col md:flex-row gap-0 border-2 border-white bg-[#181b21] shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                            <div class="md:w-5/12 shrink-0 relative border-b-2 md:border-b-0 md:border-r-2 border-white overflow-hidden">
+                                <img alt="PC Gaming Setup" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=800" />
+                                <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 text-xs font-bold uppercase border border-white">Hardware</div>
+                            </div>
+                            <div class="flex flex-col justify-between p-6 flex-1">
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-2 text-xs font-bold uppercase text-gray-500">
+                                        <span class="material-symbols-outlined text-sm">schedule</span>
+                                        <span>2 Jam Lalu</span>
+                                    </div>
+                                    <h4 class="text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        <a class="before:absolute before:inset-0" href="#">Rakit PC Gaming Budget Pelajar 2024</a>
+                                    </h4>
+                                    <p class="text-gray-400 font-body text-sm line-clamp-2">
+                                        Panduan memilih komponen terbaik (CPU, GPU, RAM) dengan budget terbatas namun performa maksimal.
+                                    </p>
+                                </div>
+                                <div class="mt-6 flex justify-end">
+                                    <span class="size-8 rounded-full border-2 border-white bg-white text-black flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <span class="material-symbols-outlined text-sm font-bold">arrow_outward</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="group relative flex flex-col md:flex-row gap-0 border-2 border-white bg-[#181b21] shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                            <div class="md:w-5/12 shrink-0 relative border-b-2 md:border-b-0 md:border-r-2 border-white overflow-hidden">
+                                <img alt="Mechanical Keyboard" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&q=80&w=800" />
+                                <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 text-xs font-bold uppercase border border-white">Review</div>
+                            </div>
+                            <div class="flex flex-col justify-between p-6 flex-1">
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-2 text-xs font-bold uppercase text-gray-500">
+                                        <span class="material-symbols-outlined text-sm">schedule</span>
+                                        <span>1 Hari Lalu</span>
+                                    </div>
+                                    <h4 class="text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        <a class="before:absolute before:inset-0" href="#">Review Keychron K2: Keyboard Wajib Programmer?</a>
+                                    </h4>
+                                    <p class="text-gray-400 font-body text-sm line-clamp-2">
+                                        Bedah tuntas keyboard mekanikal favorit developer. Apakah switch brown benar-benar enak untuk coding?
+                                    </p>
+                                </div>
+                                <div class="mt-6 flex justify-end">
+                                    <span class="size-8 rounded-full border-2 border-white bg-white text-black flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <span class="material-symbols-outlined text-sm font-bold">arrow_outward</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="group relative flex flex-col md:flex-row gap-0 border-2 border-white bg-[#181b21] shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                            <div class="md:w-5/12 shrink-0 relative border-b-2 md:border-b-0 md:border-r-2 border-white overflow-hidden">
+                                <img alt="Python Code" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80&w=800" />
+                                <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 text-xs font-bold uppercase border border-white">Coding</div>
+                            </div>
+                            <div class="flex flex-col justify-between p-6 flex-1">
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-2 text-xs font-bold uppercase text-gray-500">
+                                        <span class="material-symbols-outlined text-sm">schedule</span>
+                                        <span>3 Hari Lalu</span>
+                                    </div>
+                                    <h4 class="text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        <a class="before:absolute before:inset-0" href="#">Automasi WhatsApp dengan Python</a>
+                                    </h4>
+                                    <p class="text-gray-400 font-body text-sm line-clamp-2">
+                                        Script sederhana 20 baris untuk mengirim pesan otomatis. Tingkatkan produktivitas Anda sekarang.
+                                    </p>
+                                </div>
+                                <div class="mt-6 flex justify-end">
+                                    <span class="size-8 rounded-full border-2 border-white bg-white text-black flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <span class="material-symbols-outlined text-sm font-bold">arrow_outward</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="flex justify-center mt-8">
+                        <nav class="flex gap-3">
+                            <button class="size-12 flex items-center justify-center border-2 border-white bg-[#181b21] hover:bg-white hover:text-black transition-colors font-bold disabled:opacity-50">
+                                <span class="material-symbols-outlined">chevron_left</span>
+                            </button>
+                            <button class="size-12 flex items-center justify-center border-2 border-primary bg-primary text-white font-bold shadow-neo hover:-translate-y-1 transition-transform">1</button>
+                            <button class="size-12 flex items-center justify-center border-2 border-white bg-[#181b21] hover:bg-white hover:text-black transition-colors font-bold hover:shadow-neo-white">2</button>
+                            <button class="size-12 flex items-center justify-center border-2 border-white bg-[#181b21] hover:bg-white hover:text-black transition-colors font-bold hover:shadow-neo-white">3</button>
+                            <button class="size-12 flex items-center justify-center border-2 border-white bg-[#181b21] hover:bg-white hover:text-black transition-colors font-bold hover:shadow-neo-white">
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+
+                <aside class="lg:col-span-4 space-y-10">
+                    <div class="border-2 border-white bg-[#181b21] shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <div class="bg-[#181b21] text-white p-4 border-b-2 border-white">
+                            <h3 class="text-xl font-black uppercase flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">category</span> Kategori
+                            </h3>
+                        </div>
+                        <ul class="divide-y-2 divide-[#333]">
+                            <li>
+                                <a class="flex items-center justify-between p-4 hover:bg-primary hover:text-white transition-colors group" href="#">
+                                    <span class="font-bold">Hardware</span>
+                                    <span class="bg-[#333] text-white text-xs font-bold px-2 py-1 rounded-sm group-hover:bg-white group-hover:text-primary">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center justify-between p-4 hover:bg-primary hover:text-white transition-colors group" href="#">
+                                    <span class="font-bold">Software</span>
+                                    <span class="bg-[#333] text-white text-xs font-bold px-2 py-1 rounded-sm group-hover:bg-white group-hover:text-primary">8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center justify-between p-4 hover:bg-primary hover:text-white transition-colors group" href="#">
+                                    <span class="font-bold">Tutorial</span>
+                                    <span class="bg-[#333] text-white text-xs font-bold px-2 py-1 rounded-sm group-hover:bg-white group-hover:text-primary">24</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-2 border-white bg-[#181b21] shadow-neo p-6 hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <h3 class="text-xl font-black uppercase mb-6 border-b-2 border-gray-700 pb-2">Tag Populer</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a class="px-3 py-1 bg-[#282e39] border border-white hover:bg-accent hover:text-black hover:border-black hover:shadow-sm transition-all text-sm font-bold uppercase" href="#">#coding</a>
+                            <a class="px-3 py-1 bg-[#282e39] border border-white hover:bg-accent hover:text-black hover:border-black hover:shadow-sm transition-all text-sm font-bold uppercase" href="#">#setup</a>
+                            <a class="px-3 py-1 bg-[#282e39] border border-white hover:bg-accent hover:text-black hover:border-black hover:shadow-sm transition-all text-sm font-bold uppercase" href="#">#linux</a>
+                            <a class="px-3 py-1 bg-[#282e39] border border-white hover:bg-accent hover:text-black hover:border-black hover:shadow-sm transition-all text-sm font-bold uppercase" href="#">#gaming</a>
+                            <a class="px-3 py-1 bg-[#282e39] border border-white hover:bg-accent hover:text-black hover:border-black hover:shadow-sm transition-all text-sm font-bold uppercase" href="#">#AI</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-primary p-6 border-2 border-white text-center relative overflow-hidden group shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <div class="absolute -right-6 -top-6 bg-white/10 size-24 rounded-full blur-xl group-hover:bg-white/20 transition-all"></div>
+                        <span class="material-symbols-outlined text-5xl mb-3 text-white">mail</span>
+                        <h3 class="text-xl font-black uppercase mb-2 text-white">Jangan Kudet!</h3>
+                        <p class="text-sm font-body mb-4 leading-tight text-white/90">Dapatkan tips teknologi praktis langsung ke inbox.</p>
+                        <form class="flex flex-col gap-3">
+                            <input class="w-full bg-white text-black border-2 border-black p-3 text-sm font-bold placeholder-gray-500 focus:outline-none focus:shadow-neo-white" placeholder="Email Anda" type="email" />
+                            <button class="w-full bg-black text-white font-bold uppercase py-3 border-2 border-transparent hover:bg-accent hover:text-black hover:border-black transition-colors shadow-lg">
+                                Gabung
+                            </button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+
+            <section class="mt-24 border-t-4 border-white pt-12 relative">
+                <div class="absolute left-1/2 -top-6 -translate-x-1/2 bg-[#0f1115] px-6">
+                    <span class="material-symbols-outlined text-4xl text-white">format_quote</span>
+                </div>
+
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight">Apa Kata Mereka?</h3>
+                    <p class="text-gray-400 mt-2">Feedback brutal dari pembaca setia.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-[#181b21] border-2 border-white p-6 shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=3b82f6&color=fff" alt="User" class="size-10 rounded-none border border-white">
+                            <div>
+                                <p class="font-bold uppercase text-sm">Budi Santoso</p>
+                                <p class="text-xs text-primary font-bold">DevOps Engineer</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic font-body text-sm leading-relaxed">"Penjelasan Docker disini gila sih. Singkat, padat, langsung praktek. Gak kayak tutorial lain yang kebanyakan teori."</p>
+                    </div>
+                    <div class="bg-[#181b21] border-2 border-white p-6 shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://ui-avatars.com/api/?name=Rina+Amelia&background=facc15&color=000" alt="User" class="size-10 rounded-none border border-white">
+                            <div>
+                                <p class="font-bold uppercase text-sm">Rina Amelia</p>
+                                <p class="text-xs text-primary font-bold">Frontend Dev</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic font-body text-sm leading-relaxed">"Design webnya unik banget! Neo-brutalism on point. Tutorial CSS-nya juga ngebantu banget buat portofolio."</p>
+                    </div>
+                    <div class="bg-[#181b21] border-2 border-white p-6 shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://ui-avatars.com/api/?name=Dimas+Pratama&background=fff&color=000" alt="User" class="size-10 rounded-none border border-white">
+                            <div>
+                                <p class="font-bold uppercase text-sm">Dimas P.</p>
+                                <p class="text-xs text-primary font-bold">Mahasiswa</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic font-body text-sm leading-relaxed">"Suka banget sama rekomendasi hardware budget pelajarnya. Realistis dan gak maksa dompet nangis."</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="border-t-4 border-white bg-[#0a0c0f] pt-16 pb-8 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+            <div class="container mx-auto px-4 lg:px-8 relative z-10">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    <div class="lg:col-span-1 space-y-6">
+                        <div class="flex items-center gap-2">
+                            <div class="size-10 bg-primary border-2 border-white flex items-center justify-center">
+                                <span class="material-symbols-outlined text-white font-bold">terminal</span>
+                            </div>
+                            <h2 class="text-2xl font-black uppercase tracking-tighter">RUANGGULIK</h2>
+                        </div>
+                        <p class="text-gray-400 font-body text-sm leading-relaxed border-l-2 border-primary pl-4">
+                            Tech blog tanpa basa-basi. Kami menyajikan informasi teknis dengan bahasa manusia untuk engineer masa depan.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-bold uppercase bg-white text-black inline-block px-2 transform -skew-x-12">Navigasi</h4>
+                        <ul class="space-y-2 text-sm font-body text-gray-400 mt-4">
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Beranda</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Tentang Kami</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Hubungi Kami</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Karir</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-bold uppercase bg-white text-black inline-block px-2 transform -skew-x-12">Topik</h4>
+                        <ul class="space-y-2 text-sm font-body text-gray-400 mt-4">
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Pemrograman</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Gadget Setup</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Linux & Server</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Produktivitas</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h4 class="text-lg font-bold uppercase bg-white text-black inline-block px-2 transform -skew-x-12">Connect</h4>
+                        <div class="flex gap-4 mt-4">
+                            <a class="size-12 flex items-center justify-center bg-[#181b21] border-2 border-white text-white hover:bg-primary hover:shadow-neo hover:-translate-y-1 transition-all" href="#">
+                                <span class="material-symbols-outlined">public</span>
+                            </a>
+                            <a class="size-12 flex items-center justify-center bg-[#181b21] border-2 border-white text-white hover:bg-primary hover:shadow-neo hover:-translate-y-1 transition-all" href="#">
+                                <span class="material-symbols-outlined">photo_camera</span>
+                            </a>
+                            <a class="size-12 flex items-center justify-center bg-[#181b21] border-2 border-white text-white hover:bg-primary hover:shadow-neo hover:-translate-y-1 transition-all" href="#">
+                                <span class="material-symbols-outlined">code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t-2 border-[#333] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-gray-500 font-body">© 2024 Ruanggulik. Built with ☕ and Code.</p>
+                    <div class="flex gap-6 text-sm text-gray-500 font-body">
+                        <a class="hover:text-white underline decoration-dashed underline-offset-4" href="#">Privacy Policy</a>
+                        <a class="hover:text-white underline decoration-dashed underline-offset-4" href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+
+</body>
+
+</html>

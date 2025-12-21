@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-accent: #facc15;
+  --color-background-dark: #0f1115;
+  --color-surface-dark: #181b21;
+  --color-border-dark: #333;
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-noto-sans), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+
+  --shadow-neo: 6px 6px 0px 0px #3b82f6;
+  --shadow-neo-white: 6px 6px 0px 0px #ffffff;
+  --shadow-neo-accent: 6px 6px 0px 0px #facc15;
+  --shadow-neo-sm: 3px 3px 0px 0px #3b82f6;
+  --shadow-none: 0px 0px 0px 0px transparent;
+}
+
+/* Custom Utilities similar to v3 layers but in v4 we just write css */
+@utility bg-grid-pattern {
+  background-color: #0f1115;
+  background-image: radial-gradient(#333 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@utility transition-all-custom {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Notion Overrides */
+.notion {
+  font-family: var(--font-noto-sans), sans-serif;
+  color: #d1d5db;
+}
+
+.notion-h1, .notion-h2, .notion-h3 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  text-transform: uppercase;
+  color: white;
+}
+
+.notion-h2 {
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.notion-link {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+.notion-code {
+    background: #181b21 !important;
+    border: 2px solid #333;
+    border-radius: 0 !important;
+}
+
+.notion-quote {
+    border-left: 4px solid #facc15 !important;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem !important;
+}

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="dark" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Panduan rakit PC Gaming 2024 budget pelajar.">
+    <title>Rakit PC Hemat Budget Pelajar - Ruanggulik</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Noto+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6",
+                        "primary-hover": "#2563eb",
+                        "accent": "#facc15",
+                        "background-dark": "#0f1115",
+                        "surface-dark": "#181b21",
+                        "border-dark": "#333",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    boxShadow: {
+                        "neo": "6px 6px 0px 0px #3b82f6",
+                        "neo-white": "6px 6px 0px 0px #ffffff",
+                        "neo-accent": "6px 6px 0px 0px #facc15",
+                        "neo-sm": "3px 3px 0px 0px #3b82f6",
+                        "none": "0px 0px 0px 0px transparent",
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f1115;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border: 2px solid #0f1115;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        .bg-grid-pattern {
+            background-color: #0f1115;
+            background-image: radial-gradient(#333 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+        }
+
+        /* Styling Artikel Konten */
+        .prose h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            font-weight: 800;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            color: white;
+        }
+
+        .prose h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            color: white;
+        }
+
+        .prose p {
+            color: #d1d5db;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        .prose strong {
+            color: #facc15;
+        }
+
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Progress Bar Animation */
+        #progress-bar {
+            width: 0%;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+
+<body class="bg-grid-pattern text-white font-display overflow-x-hidden selection:bg-accent selection:text-black">
+
+    <div class="flex min-h-screen flex-col relative">
+
+        <header class="sticky top-0 z-50 w-full border-b-2 border-white bg-[#0f1115]/95 backdrop-blur-md">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="flex h-20 items-center justify-between">
+                    <a class="flex items-center gap-3 group" href="index.html">
+                        <div class="flex size-10 items-center justify-center bg-primary text-white border-2 border-white transition-transform group-hover:rotate-6 group-hover:shadow-neo-white">
+                            <span class="material-symbols-outlined font-bold">terminal</span>
+                        </div>
+                        <h1 class="text-2xl font-black tracking-tighter text-white uppercase italic group-hover:text-primary transition-colors">RUANGGULIK</h1>
+                    </a>
+
+                    <nav class="hidden lg:flex items-center gap-8">
+                        <a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors relative group" href="index.html">Beranda</a>
+                        <a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors relative group" href="#">Kategori</a>
+                        <a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors relative group" href="#">Tentang</a>
+                    </nav>
+
+                    <div class="hidden lg:flex items-center gap-4">
+                        <button class="bg-accent text-black px-6 py-2 text-sm font-bold uppercase border-2 border-white hover:shadow-neo-white hover:-translate-y-1 transition-all active:translate-y-0 active:shadow-none">
+                            Subscribe
+                        </button>
+                    </div>
+
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 border-2 border-white bg-surface-dark text-white hover:bg-primary transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="w-full h-1 bg-gray-800 absolute bottom-0 left-0">
+                <div id="progress-bar" class="h-full bg-accent shadow-[0_0_10px_#facc15]"></div>
+            </div>
+
+            <div id="mobile-menu" class="fixed inset-0 bg-[#0f1115] z-50 transform translate-x-full transition-transform duration-300 flex flex-col pt-24 px-6 gap-6 lg:hidden">
+                <button id="close-menu-btn" class="absolute top-6 right-4 p-2 border-2 border-white text-white hover:bg-red-600 transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <a href="index.html" class="text-3xl font-black uppercase hover:text-primary border-b-2 border-white/20 pb-4">Beranda</a>
+                <a href="#" class="text-3xl font-black uppercase hover:text-primary border-b-2 border-white/20 pb-4">Kategori</a>
+            </div>
+        </header>
+
+        <main class="flex-grow container mx-auto px-4 lg:px-8 py-12 max-w-7xl">
+
+            <div class="mb-8 flex items-center gap-2 text-sm font-bold uppercase text-gray-500">
+                <a href="index.html" class="hover:text-primary hover:underline">Beranda</a>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+                <a href="#" class="hover:text-primary hover:underline">Hardware</a>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+                <span class="text-white">Rakit PC Budget Pelajar</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
+
+                <article class="lg:col-span-8 flex flex-col gap-8">
+
+                    <header class="space-y-6">
+                        <div class="flex flex-wrap gap-4">
+                            <span class="bg-primary text-white border border-white px-3 py-1 text-xs font-bold uppercase shadow-neo-sm">Hardware</span>
+                            <span class="bg-[#181b21] text-gray-400 border border-white px-3 py-1 text-xs font-bold uppercase flex items-center gap-2">
+                                <span class="material-symbols-outlined text-sm">schedule</span> 12 Menit Baca
+                            </span>
+                        </div>
+
+                        <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-none text-white">
+                            Cara Rakit PC Hemat untuk Budget Pelajar <span class="text-primary text-stroke-hover cursor-default transition-colors">2024</span>
+                        </h1>
+
+                        <div class="flex items-center gap-4 border-y-2 border-dashed border-gray-700 py-4">
+                            <img src="https://ui-avatars.com/api/?name=Admin+Gulik&background=facc15&color=000" alt="Author" class="size-12 border-2 border-white">
+                            <div>
+                                <p class="font-bold uppercase text-sm text-white">Ditulis oleh <span class="text-accent">Admin Gulik</span></p>
+                                <p class="text-xs text-gray-400 font-mono">21 Mei 2024 • 10:45 WIB</p>
+                            </div>
+                            <div class="ml-auto flex gap-2">
+                                <button class="p-2 border border-white hover:bg-white hover:text-black transition-colors"><span class="material-symbols-outlined text-sm">share</span></button>
+                                <button class="p-2 border border-white hover:bg-white hover:text-black transition-colors"><span class="material-symbols-outlined text-sm">bookmark</span></button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="aspect-video w-full border-2 border-white bg-[#181b21] relative shadow-neo overflow-hidden group hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=1200" alt="PC Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 bg-black/80 backdrop-blur-sm px-4 py-2 border-t-2 border-r-2 border-white">
+                            <p class="text-xs font-mono text-gray-300">Ilustrasi Setup Minimalis</p>
+                        </div>
+                    </div>
+
+                    <div class="prose prose-invert max-w-none border-2 border-white bg-[#181b21] p-6 md:p-10 shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+
+                        <p class="lead text-xl font-medium text-white italic border-l-4 border-primary pl-4">
+                            "Bang, pengen PC gaming tapi duit jajan pas-pasan." Tenang, kita bedah rakitan yang performanya "nendang" tapi dompet tetap aman.
+                        </p>
+
+                        <h2>Kenapa Harus Rakit Sendiri?</h2>
+                        <p>
+                            Membeli PC pre-built seringkali ada "biaya tersembunyi" atau komponen murahan di bagian PSU dan Motherboard. Dengan merakit sendiri, kita bisa kontrol kualitas setiap komponen, dan tentunya, <strong>hemat hingga 20-30%</strong>.
+                        </p>
+
+                        <h2>Target Spesifikasi (Budget 5 Jutaan)</h2>
+                        <p>Target kita adalah PC yang bisa menjalankan:</p>
+                        <ul>
+                            <li>Valorant & CS2 (100+ FPS)</li>
+                            <li>Genshin Impact (Medium-High 60 FPS)</li>
+                            <li>Coding (VS Code, Docker ringan)</li>
+                            <li>Editing Video Ringan (CapCut/Premiere 1080p)</li>
+                        </ul>
+
+                        <div class="not-prose grid md:grid-cols-2 gap-4 my-8">
+                            <div class="border-2 border-white bg-[#0f1115] p-4 shadow-sm hover:shadow-neo hover:translate-x-1 hover:translate-y-1 transition-all">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="material-symbols-outlined text-accent text-3xl">memory</span>
+                                    <span class="bg-primary px-2 py-0.5 text-xs font-bold uppercase">Otak</span>
+                                </div>
+                                <h4 class="text-lg font-black uppercase text-white">Intel Core i3-12100F</h4>
+                                <p class="text-xs text-gray-400 font-mono mt-1">4 Cores / 8 Threads</p>
+                                <p class="mt-3 text-sm text-gray-300">Raja budget gaming saat ini. Single core kencang, jauh lebih baik dari i7 jadul.</p>
+                                <div class="mt-3 text-right font-bold text-accent">Rp 1.450.000</div>
+                            </div>
+
+                            <div class="border-2 border-white bg-[#0f1115] p-4 shadow-sm hover:shadow-neo hover:translate-x-1 hover:translate-y-1 transition-all">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="material-symbols-outlined text-accent text-3xl">videogame_asset</span>
+                                    <span class="bg-primary px-2 py-0.5 text-xs font-bold uppercase">Grafis</span>
+                                </div>
+                                <h4 class="text-lg font-black uppercase text-white">Radeon RX 6600 (2nd)</h4>
+                                <p class="text-xs text-gray-400 font-mono mt-1">8GB GDDR6</p>
+                                <p class="mt-3 text-sm text-gray-300">Untuk budget mepet, cari bekas garansi resmi. Performanya setara RTX 3060 di banyak game.</p>
+                                <div class="mt-3 text-right font-bold text-accent">Rp 2.100.000</div>
+                            </div>
+
+                            <div class="border-2 border-white bg-[#0f1115] p-4 shadow-sm hover:shadow-neo hover:translate-x-1 hover:translate-y-1 transition-all">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="material-symbols-outlined text-accent text-3xl">memory_alt</span>
+                                    <span class="bg-primary px-2 py-0.5 text-xs font-bold uppercase">Ingatan</span>
+                                </div>
+                                <h4 class="text-lg font-black uppercase text-white">16GB Kit (2x8) 3200MHz</h4>
+                                <p class="text-xs text-gray-400 font-mono mt-1">DDR4 Dual Channel</p>
+                                <p class="mt-3 text-sm text-gray-300">Jangan pakai single channel! Dual channel nambah FPS signifikan. Merk Klevv/Team/ADATA cukup.</p>
+                                <div class="mt-3 text-right font-bold text-accent">Rp 650.000</div>
+                            </div>
+
+                            <div class="border-2 border-white bg-[#0f1115] p-4 shadow-sm hover:shadow-neo hover:translate-x-1 hover:translate-y-1 transition-all">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="material-symbols-outlined text-accent text-3xl">hard_drive</span>
+                                    <span class="bg-primary px-2 py-0.5 text-xs font-bold uppercase">Gudang</span>
+                                </div>
+                                <h4 class="text-lg font-black uppercase text-white">NVMe M.2 512GB</h4>
+                                <p class="text-xs text-gray-400 font-mono mt-1">Gen 3x4</p>
+                                <p class="mt-3 text-sm text-gray-300">Selamat tinggal HDD lemot. NVMe bikin booting windows cuma 10 detik. Minimal 512GB buat simpan game.</p>
+                                <div class="mt-3 text-right font-bold text-accent">Rp 550.000</div>
+                            </div>
+                        </div>
+
+                        <h2>Total Estimasi Harga</h2>
+
+                        <div class="not-prose bg-black border-2 border-white p-4 font-mono text-sm text-green-400 mb-8 shadow-neo-sm relative overflow-hidden overflow-x-auto">
+                            <div class="absolute inset-0 bg-green-500/5 pointer-events-none sticky left-0 w-full h-full"></div>
+                            <div class="min-w-[300px]">
+                                <div class="border-b border-green-800 pb-2 mb-2 flex justify-between">
+                                    <span>ITEM</span>
+                                    <span>HARGA (EST)</span>
+                                </div>
+                                <div class="flex justify-between py-1"><span>CPU: i3-12100F</span><span>1.450k</span></div>
+                                <div class="flex justify-between py-1"><span>MOBO: H610M</span><span>1.100k</span></div>
+                                <div class="flex justify-between py-1"><span>RAM: 16GB Kit</span><span>650k</span></div>
+                                <div class="flex justify-between py-1"><span>SSD: 512GB NVMe</span><span>550k</span></div>
+                                <div class="flex justify-between py-1"><span>GPU: RX 6600 (2nd)</span><span>2.100k</span></div>
+                                <div class="flex justify-between py-1"><span>PSU: 550W 80+ Brz</span><span>600k</span></div>
+                                <div class="flex justify-between py-1"><span>CASE: Gaming Std</span><span>350k</span></div>
+                                <div class="border-t border-green-800 pt-2 mt-2 flex justify-between font-bold text-accent text-base">
+                                    <span>TOTAL</span>
+                                    <span>Rp 6.800.000</span>
+                                </div>
+                                <div class="mt-4 text-xs text-gray-500">*Harga dapat berubah sewaktu-waktu tergantung marketplace</div>
+                            </div>
+                        </div>
+
+                        <h3>Tips Hemat Tambahan</h3>
+                        <p>
+                            Jika budget 6.8 Juta masih terlalu berat, Anda bisa menunda pembelian GPU Discrete (VGA Card). Ganti prosesor ke <strong>AMD Ryzen 5 5600G</strong> (sekitar Rp 1.9jt) yang sudah punya grafis bawaan kencang. Total rakitan bisa turun ke angka <strong>4 Jutaan</strong>!
+                        </p>
+
+                        <h2>Kesimpulan</h2>
+                        <p>
+                            Rakit PC itu investasi. Dengan spek di atas, Anda punya mesin yang jauh lebih kuat daripada laptop di harga yang sama (biasanya laptop 6-7jt cuma dapat Celeron/i3 U-series tanpa GPU kencang). Selamat mencoba!
+                        </p>
+
+                    </div>
+
+                    <div class="border-2 border-white bg-[#181b21] p-6 shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <h3 class="text-xl font-black uppercase mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined">forum</span> Diskusi (3)
+                        </h3>
+
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="size-10 bg-primary border border-white shrink-0"></div>
+                                <div class="flex-1 space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <h5 class="font-bold text-white uppercase">Ahmad Gaming</h5>
+                                        <span class="text-xs text-gray-500">2 Jam lalu</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm font-body">Bang, kalau PSU-nya diganti merk abal-abal 100rb-an aman gak? Biar hemat.</p>
+                                    <div class="mt-4 border-l-2 border-primary pl-4 py-2 bg-[#0f1115]">
+                                        <h5 class="font-bold text-accent text-sm uppercase mb-1">Admin Gulik</h5>
+                                        <p class="text-gray-300 text-sm font-body">JANGAN! PSU itu jantung PC. Kalau PSU meledak, komponen lain (VGA, Mobo) bisa ikut mati. Mending case kardus daripada PSU jelek.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-6 border-t border-gray-700">
+                                <label class="block text-sm font-bold uppercase mb-2">Tulis Komentar</label>
+                                <textarea class="w-full bg-[#0f1115] border-2 border-[#333] p-3 text-white focus:border-primary focus:outline-none focus:shadow-neo-sm h-24 mb-3 placeholder-gray-600" placeholder="Tanya sesuatu..."></textarea>
+                                <button class="bg-white text-black font-bold uppercase px-6 py-2 border-2 border-transparent hover:bg-primary hover:text-white hover:border-white transition-colors">
+                                    Kirim
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+
+                <aside class="lg:col-span-4 space-y-10 lg:sticky lg:top-24 h-fit">
+                    <div class="border-2 border-white bg-[#181b21] shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <div class="bg-[#181b21] text-white p-4 border-b-2 border-white">
+                            <h3 class="text-xl font-black uppercase flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">auto_stories</span> Baca Juga
+                            </h3>
+                        </div>
+                        <div class="flex flex-col">
+                            <a href="#" class="flex gap-3 p-4 border-b border-[#333] hover:bg-[#0f1115] group transition-colors">
+                                <div class="size-16 bg-gray-700 shrink-0 border border-white overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm leading-tight group-hover:text-primary mb-1">Rekomendasi Monitor 144Hz Murah</h4>
+                                    <span class="text-xs text-gray-500">Hardware</span>
+                                </div>
+                            </a>
+                            <a href="#" class="flex gap-3 p-4 border-b border-[#333] hover:bg-[#0f1115] group transition-colors">
+                                <div class="size-16 bg-gray-700 shrink-0 border border-white overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm leading-tight group-hover:text-primary mb-1">Mouse Gaming vs Office: Bedanya Apa?</h4>
+                                    <span class="text-xs text-gray-500">Review</span>
+                                </div>
+                            </a>
+                            <a href="#" class="flex gap-3 p-4 hover:bg-[#0f1115] group transition-colors">
+                                <div class="size-16 bg-gray-700 shrink-0 border border-white overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm leading-tight group-hover:text-primary mb-1">Install Windows 11 Tanpa Bloatware</h4>
+                                    <span class="text-xs text-gray-500">Tutorial</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-primary p-6 border-2 border-white text-center relative overflow-hidden group shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        <div class="absolute -right-6 -top-6 bg-white/10 size-24 rounded-full blur-xl group-hover:bg-white/20 transition-all"></div>
+                        <span class="material-symbols-outlined text-5xl mb-3 text-white">mail</span>
+                        <h3 class="text-xl font-black uppercase mb-2 text-white">Jangan Kudet!</h3>
+                        <p class="text-sm font-body mb-4 leading-tight text-white/90">Dapatkan tips rakit PC lainnya langsung ke inbox.</p>
+                        <form class="flex flex-col gap-3">
+                            <input class="w-full bg-white text-black border-2 border-black p-3 text-sm font-bold placeholder-gray-500 focus:outline-none focus:shadow-neo-white" placeholder="Email Anda" type="email" />
+                            <button class="w-full bg-black text-white font-bold uppercase py-3 border-2 border-transparent hover:bg-accent hover:text-black hover:border-black transition-colors shadow-lg">
+                                Gabung
+                            </button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="border-t-4 border-white bg-[#0a0c0f] pt-16 pb-8 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+            <div class="container mx-auto px-4 lg:px-8 relative z-10">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    <div class="lg:col-span-1 space-y-6">
+                        <div class="flex items-center gap-2">
+                            <div class="size-10 bg-primary border-2 border-white flex items-center justify-center">
+                                <span class="material-symbols-outlined text-white font-bold">terminal</span>
+                            </div>
+                            <h2 class="text-2xl font-black uppercase tracking-tighter">RUANGGULIK</h2>
+                        </div>
+                        <p class="text-gray-400 font-body text-sm leading-relaxed border-l-2 border-primary pl-4">
+                            Tech blog tanpa basa-basi. Kami menyajikan informasi teknis dengan bahasa manusia untuk engineer masa depan.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-bold uppercase bg-white text-black inline-block px-2 transform -skew-x-12">Navigasi</h4>
+                        <ul class="space-y-2 text-sm font-body text-gray-400 mt-4">
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="index.html">> Beranda</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Tentang Kami</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Hubungi Kami</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-bold uppercase bg-white text-black inline-block px-2 transform -skew-x-12">Topik</h4>
+                        <ul class="space-y-2 text-sm font-body text-gray-400 mt-4">
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Pemrograman</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Gadget Setup</a></li>
+                            <li><a class="hover:text-primary hover:pl-2 transition-all" href="#">> Linux & Server</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h4 class="text-lg font-bold uppercase bg-white text-black inline-block px-2 transform -skew-x-12">Connect</h4>
+                        <div class="flex gap-4 mt-4">
+                            <a class="size-12 flex items-center justify-center bg-[#181b21] border-2 border-white text-white hover:bg-primary hover:shadow-neo hover:-translate-y-1 transition-all" href="#">
+                                <span class="material-symbols-outlined">public</span>
+                            </a>
+                            <a class="size-12 flex items-center justify-center bg-[#181b21] border-2 border-white text-white hover:bg-primary hover:shadow-neo hover:-translate-y-1 transition-all" href="#">
+                                <span class="material-symbols-outlined">photo_camera</span>
+                            </a>
+                            <a class="size-12 flex items-center justify-center bg-[#181b21] border-2 border-white text-white hover:bg-primary hover:shadow-neo hover:-translate-y-1 transition-all" href="#">
+                                <span class="material-symbols-outlined">code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t-2 border-[#333] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-gray-500 font-body">© 2024 Ruanggulik. Built with ☕ and Code.</p>
+                    <div class="flex gap-6 text-sm text-gray-500 font-body">
+                        <a class="hover:text-white underline decoration-dashed underline-offset-4" href="#">Privacy Policy</a>
+                        <a class="hover:text-white underline decoration-dashed underline-offset-4" href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+
+        // [NEW] Reading Progress Bar Script
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+
+</body>
+
+</html>

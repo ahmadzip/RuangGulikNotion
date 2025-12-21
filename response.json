@@ -1,0 +1,153 @@
+{
+  "object": "page",
+  "id": "2d0236c7-3377-8002-ba39-f051178be9de",
+  "created_time": "2025-12-21T02:04:00.000Z",
+  "last_edited_time": "2025-12-21T02:08:00.000Z",
+  "created_by": {
+    "object": "user",
+    "id": "e39ecddc-98b2-4ec2-8771-adffb2da8f83"
+  },
+  "last_edited_by": {
+    "object": "user",
+    "id": "e39ecddc-98b2-4ec2-8771-adffb2da8f83"
+  },
+  "cover": null,
+  "icon": null,
+  "parent": {
+    "type": "database_id",
+    "database_id": "2d0236c7-3377-8010-a7be-ef53cb304121"
+  },
+  "archived": false,
+  "in_trash": false,
+  "is_locked": false,
+  "properties": {
+    "Slug": {
+      "id": "H%3ACK",
+      "type": "rich_text",
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "test-post",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "test-post",
+          "href": null
+        }
+      ]
+    },
+    "Date": {
+      "id": "T%5CDW",
+      "type": "date",
+      "date": {
+        "start": "2025-12-21",
+        "end": null,
+        "time_zone": null
+      }
+    },
+    "Published": {
+      "id": "dxKJ",
+      "type": "checkbox",
+      "checkbox": true
+    },
+    "Summary": {
+      "id": "kWZz",
+      "type": "rich_text",
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "webapp",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "webapp",
+          "href": null
+        }
+      ]
+    },
+    "Tags": {
+      "id": "niDv",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "<|p]",
+          "name": "#game",
+          "color": "blue"
+        }
+      ]
+    },
+    "Category": {
+      "id": "y%3C%60b",
+      "type": "select",
+      "select": {
+        "id": "HAot",
+        "name": "Komputer",
+        "color": "red"
+      }
+    },
+    "Author": {
+      "id": "%7DBQs",
+      "type": "rich_text",
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "manzip",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "manzip",
+          "href": null
+        }
+      ]
+    },
+    "Name": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Test Post",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Test Post",
+          "href": null
+        }
+      ]
+    }
+  },
+  "url": "https://www.notion.so/Test-Post-2d0236c733778002ba39f051178be9de",
+  "public_url": null
+}
