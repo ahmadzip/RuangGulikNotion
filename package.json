@@ -16,19 +16,18 @@
         "@tailwindcss/typography": "^0.5.19",
         "autoprefixer": "^10.4.23",
         "dotenv": "^17.2.3",
+        "katex": "^0.16.27",
         "next": "^16.1.0",
-        "notion-client": "^7.7.3",
-        "notion-types": "^7.7.3",
-        "prismjs": "^1.30.0",
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
-        "react-notion-x": "^7.7.3"
+        "react-katex": "^3.1.0"
     },
     "devDependencies": {
         "@types/node": "^25.0.3",
         "@types/prismjs": "^1.26.5",
         "@types/react": "^19.2.7",
         "@types/react-dom": "^19.2.3",
+        "@types/react-katex": "^3.0.4",
         "eslint": "^9.39.2",
         "eslint-config-next": "^16.1.0",
         "postcss": "^8.5.6",

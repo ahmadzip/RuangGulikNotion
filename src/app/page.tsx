@@ -5,11 +5,20 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getPublishedPosts } from "@/lib/notion";
 
-// Force static generation for homepage (revalidate every hour)
-export const revalidate = 3600;
 
-export default async function Home() {
+
+import Pagination from "@/components/Pagination";
+
+export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const posts = await getPublishedPosts();
+
+  const page = Number((await searchParams).page) || 1;
+  const POSTS_PER_PAGE = 10;
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+
+  const startIndex = (page - 1) * POSTS_PER_PAGE;
+  const endIndex = startIndex + POSTS_PER_PAGE;
+  const currentPosts = posts.slice(startIndex, endIndex);
 
   return (
     <>
@@ -29,14 +38,16 @@ export default async function Home() {
             </div>
 
             <div className="grid gap-8">
-              {posts.length > 0 ? (
-                posts.map((post) => <ArticleCard key={post.id} post={post} />)
+              {currentPosts.length > 0 ? (
+                currentPosts.map((post) => <ArticleCard key={post.id} post={post} />)
               ) : (
                 <div className="p-8 border-2 border-white bg-[#181b21] shadow-neo text-center">
                   <p className="text-gray-500">No posts found. Please publish some in Notion.</p>
                 </div>
               )}
             </div>
+
+            <Pagination currentPage={page} totalPages={totalPages} />
           </div>
 
           <Sidebar />

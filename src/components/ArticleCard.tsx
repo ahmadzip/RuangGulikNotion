@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { Post } from '@/lib/notion';
+import { Post } from '@/types/notion';
 import Image from 'next/image';
 
 interface ArticleCardProps {
